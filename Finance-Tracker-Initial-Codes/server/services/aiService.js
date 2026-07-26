@@ -2,8 +2,8 @@ import OpenAI from 'openai';
 import { analyzeFinance } from './financeAnalyzer.js';
 
 const hasOpenAIKey = () => {
-  const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-  return !!OPENAI_API_KEY; 
+  const key = process.env.OPENAI_API_KEY;
+  return key && key !== 'your_openai_api_key_here';
 };
 
 export const generateAIInsights = async ({ transactions, budget }) => {
