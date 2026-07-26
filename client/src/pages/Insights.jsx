@@ -40,7 +40,7 @@ function Insights() {
           ) : (
             <div className="space-y-3">
               {insights.length ? insights.map((item, index) => (
-                <div key={`${item}-${index}`} className="rounded-lg border border-sky-100 bg-sky-50 p-4 text-slate-800">
+                <div key={index} className="rounded-lg border border-sky-100 bg-sky-50 p-4 text-slate-800">
                   {item}
                 </div>
               )) :<p className="text-sm text-slate-500">Add transactions to generate insights.</p>}
