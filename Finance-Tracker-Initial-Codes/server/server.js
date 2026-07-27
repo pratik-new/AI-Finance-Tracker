@@ -18,11 +18,7 @@ const app = express();
 
 // ✅ FIXED CORS (PRODUCTION SAFE)
 app.use(cors({
-  origin: [
-    'http://localhost:5174',
-    'http://127.0.0.1:5174',
-    process.env.FRONTEND_URL
-  ].filter(Boolean),
+  origin: true,
   credentials: true
 }));
 
@@ -60,6 +56,10 @@ export const connectDB = async () => {
   }
 };
 
+app.use((req, res, next) => {
+  console.log(req.method, req.originalUrl);
+  next();
+});
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/transactions', transactionRoutes);
